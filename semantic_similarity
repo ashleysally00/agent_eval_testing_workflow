@@ -1,0 +1,26 @@
+from sentence_transformers import SentenceTransformer, util
+
+# Load a pre-trained sentence transformer model
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+def semantic_similarity(generated, reference):
+    """
+    Computes the cosine similarity between the embeddings of the generated summary and a reference summary.
+    """
+    embeddings = model.encode([generated, reference])
+    similarity = util.cos_sim(embeddings[0], embeddings[1])
+    return similarity.item()
+
+# Example usage
+reference_summary = (
+    "Climate change is a major challenge marked by rising temperatures and extreme weather. "
+    "Human actions like deforestation and pollution worsen the problem, and scientists urge immediate action to cut emissions."
+)
+generated_summary = (
+    "Climate change is a major contemporary challenge, characterized by rising global temperatures that cause extreme weather, "
+    "melting ice, and ecosystem disruptions. Human activities like deforestation and industrial pollution exacerbate these effects. "
+    "Scientists stress the urgency of reducing greenhouse gas emissions to mitigate environmental impacts."
+)
+
+sim_score = semantic_similarity(generated_summary, reference_summary)
+print(f"Semantic Similarity Score: {sim_score:.2f}")

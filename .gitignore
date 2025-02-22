@@ -1,0 +1,16 @@
+
+# macOS system files
+.DS_Store
+
+
+# Byte-compiled files
+__pycache__/
+*.pyc
+
+# Virtual environment directory
+venv/
+
+
+
+# Environment variables file
+.env
