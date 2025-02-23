@@ -3,7 +3,7 @@
 
 **still working on this rewrite later, wip**
 
-## Overview
+## Overview 📖
 This project contains a simple workflow for *evaluating AI agents.* The goal is to systematically assess and refine an AI agent's performance by testing, analyzing outputs, adjusting parameters, and retesting. This example implements a **text summarization agent** using:
 
 * **OpenAI API** for text summarization
